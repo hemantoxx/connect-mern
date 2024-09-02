@@ -1,0 +1,26 @@
+.feedback-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect behind the container */
+}
+
+.feedback-wrapper h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #444;
+}
+
+.feedback-wrapper iframe {
+    border: none;
+    width: 500px;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

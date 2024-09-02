@@ -33,7 +33,7 @@ const Header = () => {
 
           <NavLink
             id="shift_nav2"
-            to="/opportunities"
+            to="/JobPortal"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             Job List
@@ -41,7 +41,7 @@ const Header = () => {
 
           <NavLink
             id="shift_nav"
-            to="/reach-out"
+            to="/Donations"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             Donations
@@ -53,9 +53,12 @@ const Header = () => {
           >
             Events
           </NavLink>
-          <button className="signup-button" >
-              Sign Up →
-            </button> 
+          <NavLink id="shift_nav" to="/RegistrationForm">
+  <button className="signup-button">
+    Sign Up →
+  </button>
+</NavLink>
+ 
         </nav>
       </header>
       <Outlet />

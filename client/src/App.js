@@ -22,7 +22,12 @@ import Core from './pages/Core';
 import Media from './pages/Media';
 import Misc from './pages/Misc';
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 import SkillsPage from './pages/SkillsPage';
+import DonationForm from './pages/Donation';
+import JobPage from './pages/JobPortal';
+import FeedbackForm from './pages/FeedbackForm';
+import RegistrationForm from './pages/RegistrationForm';
 
 
 const ScrollToTop = () => {
@@ -79,9 +84,12 @@ function App() {
     return (
         <BrowserRouter>
          <ScrollToTop />
+         <Footer />
         <Routes>
             <Route path="/" element={<Landing />} />
-
+            
+            
+                    
             <Route path='/' element={<Header />}>
                     <Route path="/vision" element={<Vision />} />
                     <Route path="/explore" element={<Explore />}>
@@ -93,11 +101,16 @@ function App() {
                         <Route path="misc" element={<Misc />} />
                         
                     </Route>
+            
 
                         <Route path="/explore/:category/:skill" element={<SkillsPage />}/>
                     <Route path="/opportunities" element={<Opportunities />} />
                     <Route path="/reach-out" element={<ReachOut />} />
                     <Route path="/events" element={<Events />} />
+                    <Route path="/donations" element={<DonationForm />} />
+                    <Route path="/JobPortal" element={<JobPage />} />
+                    <Route path="/signup-button" element={<RegistrationForm />} />
+                    <Route path="/feedback-form" element={<FeedbackForm />}  />
             </Route>
         </Routes>
     </BrowserRouter>       

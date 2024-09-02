@@ -27,6 +27,37 @@ const eventsData = [
     postedBy: "Chris Lee, Batch of 2018",
     description: "Learn from industry leaders in our career growth seminar.",
   },
+  {
+    title: "AI in Healthcare",
+    type: "Webinar",
+    postedBy: "Jane Smith, Batch of 2021",
+    description: "Explore how artificial intelligence is revolutionizing the healthcare industry in this insightful webinar."
+  },
+  {
+    title: "Sustainable Business Practices",
+    type: "Seminar",
+    postedBy: "Michael Johnson, Batch of 2019",
+    description: "A seminar focused on the importance of sustainability in modern business practices."
+  },
+  {
+    title: "Tech Enthusiasts Meetup",
+    type: "Meetup",
+    postedBy: "Emily Clark, Batch of 2020",
+    description: "Network with fellow tech enthusiasts and share your passion for technology at this casual meetup."
+  },
+  {
+    title: "5-Year Reunion - Batch of 2018",
+    type: "Reunion",
+    postedBy: "David Lee, Batch of 2018",
+    description: "Reconnect with your batchmates at our 5-year reunion. Relive old memories and make new ones!"
+  },
+  {
+    title: "Cybersecurity Best Practices",
+    type: "Webinar",
+    postedBy: "Sophia Brown, Batch of 2023",
+    description: "Learn about the latest cybersecurity threats and how to protect yourself in this comprehensive webinar."
+  },
+  
 ];
 
 export default function Events(){

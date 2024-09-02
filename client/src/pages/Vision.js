@@ -1,6 +1,9 @@
 import React from "react"
 import Faqs from "../components/Faqs"
 import { ReactTyped } from "react-typed";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import AlumniSlider from "../components/AlumniSlider";
 
 export default function Vision(){
     return(
@@ -23,6 +26,8 @@ export default function Vision(){
                 <img src={require("../images/mentor2.png")} alt=""/>
                 <p>By simply searching for a particular domain or skill, students can find a list of experts and their contact information, making it easy to reach out and get the guidance and support they need. We believe that ConnectLNM has the potential to transform the way that students and alumni connect and collaborate within our university. By bridging the gap between juniors and seniors/alumni, we can create a more cohesive and supportive community that fosters learning and growth for all.✔️</p>
             </div>
+            <AlumniSlider />
+            
             <Faqs />
         </div>
     )
