@@ -86,16 +86,12 @@ function App() {
     return (
         <BrowserRouter>
          <ScrollToTop />
-         <Footer />
         <Routes>
             <Route path="/" element={<Landing />} />
-            
-            
-                    
+
             <Route path='/' element={<Header />}>
                     <Route path="/vision" element={<Vision />} />
                     <Route path="/explore" element={<Explore />}>
-                    
                         <Route index element={<WebTech />} />
                         <Route path="nontech" element={<NonTech />} />
                         <Route path="core" element={<Core />} />
@@ -117,6 +113,7 @@ function App() {
             </Route>
             
         </Routes>
+        <Footer />
     </BrowserRouter>       
 
     );
