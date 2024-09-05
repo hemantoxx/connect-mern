@@ -29,6 +29,8 @@ import JobPage from './pages/JobPortal';
 import FeedbackForm from './pages/FeedbackForm';
 import RegistrationForm from './pages/RegistrationForm';
 
+import MapPage from "./pages/MapPage";
+
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -99,10 +101,11 @@ function App() {
                         <Route path="core" element={<Core />} />
                         <Route path="media" element={<Media />} />
                         <Route path="misc" element={<Misc />} />
+
                         
                     </Route>
             
-
+                    <Route path="map-page" element={<MapPage />} />
                         <Route path="/explore/:category/:skill" element={<SkillsPage />}/>
                     <Route path="/opportunities" element={<Opportunities />} />
                     <Route path="/reach-out" element={<ReachOut />} />
@@ -112,6 +115,7 @@ function App() {
                     <Route path="/signup-button" element={<RegistrationForm />} />
                     <Route path="/feedback-form" element={<FeedbackForm />}  />
             </Route>
+            
         </Routes>
     </BrowserRouter>       
 

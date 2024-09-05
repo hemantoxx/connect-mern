@@ -8,7 +8,7 @@ const Footer = () => {
         <nav className="footer-navbar">
           <NavLink
             id="shift_nav"
-            to="/alumni-map"
+            to="/map-page"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             Alumni Map
@@ -25,7 +25,7 @@ const Footer = () => {
 
           <NavLink
             id="shift_nav"
-            to="/feedbackform"
+            to="/feedback-form"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             Give Feedback

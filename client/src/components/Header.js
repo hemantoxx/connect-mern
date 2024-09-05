@@ -53,7 +53,8 @@ const Header = () => {
           >
             Events
           </NavLink>
-          <NavLink id="shift_nav" to="/RegistrationForm">
+          <NavLink id="shift_nav"
+           to="/registration-form">
   <button className="signup-button">
     Sign Up →
   </button>
