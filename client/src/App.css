@@ -1582,7 +1582,6 @@ nav>*{
   width: 100%;
   bottom: 0;
   left: 0;
-  position: fixed;
   z-index: 100;
   
 /* Pushes the footer to the bottom of the flex container */

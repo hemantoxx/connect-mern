@@ -152,7 +152,7 @@ const JobPage = () => {
 
       {job === "Addjob" && (
         <div className='cards_set_head'>
-          <div style={{ background: '#DADADA', borderRadius: '40px', marginLeft: '35%', width: '30%', padding: '1%', marginTop: '10rem' }}>
+          <div style={{ background: '#DADADA', borderRadius: '40px', marginLeft: '35%', width: '30%', padding: '1%', marginTop: '7rem' }}>
             <Button
               style={{ marginLeft: '3.5%', background: '#1E90FF', borderRadius: '40px', color: 'white' }}
               onClick={() => {
@@ -201,6 +201,7 @@ const JobPage = () => {
               </ul>
             </form>
           </div>
+          <br/>
         </div>
       )}
     </>

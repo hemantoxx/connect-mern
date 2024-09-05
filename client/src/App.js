@@ -84,25 +84,18 @@ function App() {
     return (
         <BrowserRouter>
          <ScrollToTop />
-         <Footer />
         <Routes>
             <Route path="/" element={<Landing />} />
-            
-            
-                    
+
             <Route path='/' element={<Header />}>
                     <Route path="/vision" element={<Vision />} />
                     <Route path="/explore" element={<Explore />}>
-                    
                         <Route index element={<WebTech />} />
                         <Route path="nontech" element={<NonTech />} />
                         <Route path="core" element={<Core />} />
                         <Route path="media" element={<Media />} />
                         <Route path="misc" element={<Misc />} />
-                        
                     </Route>
-            
-
                         <Route path="/explore/:category/:skill" element={<SkillsPage />}/>
                     <Route path="/opportunities" element={<Opportunities />} />
                     <Route path="/reach-out" element={<ReachOut />} />
@@ -113,6 +106,7 @@ function App() {
                     <Route path="/feedback-form" element={<FeedbackForm />}  />
             </Route>
         </Routes>
+        <Footer />
     </BrowserRouter>       
 
     );
