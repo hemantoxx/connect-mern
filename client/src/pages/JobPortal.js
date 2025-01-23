@@ -10,33 +10,61 @@ const JobPage = () => {
   const [mainData, setMainData] = useState([]);
   const [job, setJob] = useState("Search");
 
-  // Load initial job data
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        const response = await axios.get(
-          "http://127.0.0.1:5000/api/v1/property/distances/19.05,72.86/unit/km"
-        );
+  // Dummy data to be shown when the app first loads
+  const dummyData = [
+    {
+      id: "1",
+      name: "Dummy Property 1",
+      location: "City 1",
+      distance: "10 km",
+      priceRange: "50,000 - 100,000 INR",
+      ratings: 4,
+    },
+    {
+      id: "2",
+      name: "Dummy Property 2",
+      location: "City 2",
+      distance: "20 km",
+      priceRange: "100,000 - 150,000 INR",
+      ratings: 3,
+    },
+    {
+      id: "3",
+      name: "Dummy Property 3",
+      location: "City 3",
+      distance: "30 km",
+      priceRange: "150,000 - 200,000 INR",
+      ratings: 5,
+    },
+  ];
 
-        const properties = response.data.data.result.map((property) => ({
-          id: property._id,
-          name: property.name,
-          location: `${property.city}, ${property.state}`,
-          distance: `${property.distance.toFixed(2)} km`,
-          priceRange: `${Math.floor(Math.random() * 100000)} - ${Math.floor(Math.random() * 200000)} INR`,
-          ratings: Math.floor(Math.random() * 5) + 1, // Simulated ratings
-        }));
+  // Function to fetch latitude and longitude based on the city name
+  const getCoordinates = async (cityName) => {
+    try {
+      // Replace with your API key for the chosen Geocoding API
+      const apiKey = 'cb17cd5c7fe24c5b983f9abbb0d4d0ca'; // e.g., OpenCage, Google Maps
+      const geocodeUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
 
-        setMainData(properties);
-        setFilteredData(properties); // Set initial data as filtered data
-      } catch (error) {
-        console.error("Error fetching initial data:", error);
-        setMainData([]); // Fallback to empty array
-        setFilteredData([]);
+      const response = await axios.get(geocodeUrl);
+      const result = response.data.results[0];
+
+      if (result) {
+        const { lat, lng } = result.geometry;
+        return { lat, lng };
+      } else {
+        throw new Error("City not found");
       }
-    };
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
+      alert("Could not fetch coordinates. Please check the city name.");
+      return null;
+    }
+  };
 
-    fetchInitialData();
+  // Load initial dummy data
+  useEffect(() => {
+    setFilteredData(dummyData);
+    setMainData(dummyData); // Set dummy data on initial load
   }, []);
 
   // Function to handle the API search when the button is clicked
@@ -46,11 +74,24 @@ const JobPage = () => {
       return;
     }
 
+    // Step 1: Get the coordinates (lat, long) of the city
+    const coordinates = await getCoordinates(searchQuery);
+    if (!coordinates) {
+      return; // If coordinates are not found, do not proceed
+    }
+
+    console.log("Coordinates:", coordinates); // Log the coordinates for debugging
+
+    // Step 2: Construct the dynamic API URL with the latitude and longitude
+    const { lat, lng } = coordinates;
+    const apiUrl = `http://127.0.0.1:5000/api/v1/property/distances/${lat},${lng}/unit/km`;
+    console.log("API URL:", apiUrl); // Log the API URL to ensure it's correct
+
     try {
-      const response = await axios.get(
-        "http://127.0.0.1:5000/api/v1/property/distances/19.05,72.86/unit/km",
-        { params: { query: searchQuery } }
-      );
+      // Step 3: Make the API call with the dynamic coordinates
+      const response = await axios.get(apiUrl, { params: { query: searchQuery } });
+
+      console.log("API Response:", response); // Log the response to check the data
 
       const properties = response.data.data.result.map((property) => ({
         id: property._id,
