@@ -6,6 +6,12 @@
     margin-left: 35%;
 }
 
-img {
-    
+.capsule {
+    align-items: center;
+    padding: 10px 10px;
+    width: 35%;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    translate: 0px 5px;
 }
