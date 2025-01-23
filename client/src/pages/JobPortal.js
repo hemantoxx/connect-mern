@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import JobCard from "../components/JobCard";
-import jobdata from "./jobdata";
-import "./JobPortal.css";
 import axios from "axios";
+import "./JobPortal.css";
 
 const JobPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,8 +12,31 @@ const JobPage = () => {
 
   // Load initial job data
   useEffect(() => {
-    setMainData(jobdata);
-    setFilteredData(jobdata);
+    const fetchInitialData = async () => {
+      try {
+        const response = await axios.get(
+          "http://127.0.0.1:5000/api/v1/property/distances/19.05,72.86/unit/km"
+        );
+
+        const properties = response.data.data.result.map((property) => ({
+          id: property._id,
+          name: property.name,
+          location: `${property.city}, ${property.state}`,
+          distance: `${property.distance.toFixed(2)} km`,
+          priceRange: `${Math.floor(Math.random() * 100000)} - ${Math.floor(Math.random() * 200000)} INR`,
+          ratings: Math.floor(Math.random() * 5) + 1, // Simulated ratings
+        }));
+
+        setMainData(properties);
+        setFilteredData(properties); // Set initial data as filtered data
+      } catch (error) {
+        console.error("Error fetching initial data:", error);
+        setMainData([]); // Fallback to empty array
+        setFilteredData([]);
+      }
+    };
+
+    fetchInitialData();
   }, []);
 
   // Function to handle the API search when the button is clicked
@@ -25,48 +47,24 @@ const JobPage = () => {
     }
 
     try {
-      // Make a GET request to the API
-      const response = await axios.get("http://127.0.0.1:5000/api/v1/property/distances/19.05,72.86/unit/km", {
-        params: { query: searchQuery }, // Pass the search query as a parameter
-      });
+      const response = await axios.get(
+        "http://127.0.0.1:5000/api/v1/property/distances/19.05,72.86/unit/km",
+        { params: { query: searchQuery } }
+      );
 
-      // Assuming the API returns the data in the required format
-      setFilteredData(response.data);
+      const properties = response.data.data.result.map((property) => ({
+        id: property._id,
+        name: property.name,
+        location: `${property.city}, ${property.state}`,
+        distance: `${property.distance.toFixed(2)} km`,
+        priceRange: `${Math.floor(Math.random() * 100000)} - ${Math.floor(Math.random() * 200000)} INR`,
+        ratings: Math.floor(Math.random() * 5) + 1, // Simulated ratings
+      }));
+
+      setFilteredData(properties); // Update filtered data with the search results
     } catch (error) {
       console.error("Error fetching data:", error);
       alert("Failed to fetch data. Please try again.");
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-
-    if (form.checkValidity()) {
-      const formData = new FormData(form);
-      const formValues = {};
-      formData.forEach((value, key) => {
-        formValues[key] = value;
-      });
-
-      const newJob = {
-        company: formValues.company,
-        jobTitle: formValues.jobTitle,
-        jobtype: [formValues.jobtype],
-        salaryMin: formValues.salaryMin,
-        salaryMax: formValues.salaryMax,
-        location: formValues.location,
-      };
-
-      setMainData((prevData) => {
-        const updatedData = [newJob, ...prevData];
-        setFilteredData(updatedData); // Update filtered data to include new job
-        return updatedData;
-      });
-
-      setJob("Search"); // Go back to the search view after submission
-    } else {
-      console.log("Please fill out all required fields.");
     }
   };
 
@@ -126,133 +124,21 @@ const JobPage = () => {
           <div className="cards_set_head">
             <div className="cards1_set">
               {filteredData.length > 0 ? (
-                filteredData.map((jobDataList, index) => (
+                filteredData.map((property) => (
                   <JobCard
-                    key={index}
-                    company={jobDataList.company}
-                    jobTitle={jobDataList.jobTitle}
-                    salaryMin={jobDataList.salaryMin}
-                    salaryMax={jobDataList.salaryMax}
-                    jobtype={jobDataList.jobtype}
-                    location={jobDataList.location}
+                    key={property.id}
+                    title={property.name}
+                    address={property.location}
+                    priceRange={property.priceRange}
+                    ratings={property.ratings}
                   />
                 ))
               ) : (
-                <p>No jobs found. Try a different query.</p>
+                <p>No properties found. Try a different query.</p>
               )}
             </div>
           </div>
         </>
-      )}
-
-      {job === "Addjob" && (
-        <div className="cards_set_head">
-          <div
-            style={{
-              background: "#DADADA",
-              borderRadius: "40px",
-              marginLeft: "35%",
-              width: "30%",
-              padding: "1%",
-              marginTop: "7rem",
-            }}
-          >
-            <Button
-              style={{
-                marginLeft: "3.5%",
-                background: "#1E90FF",
-                borderRadius: "40px",
-                color: "white",
-              }}
-              onClick={() => {
-                setJob("Search");
-                setSearchQuery("");
-              }}
-            >
-              Back
-            </Button>
-            <form onSubmit={handleSubmit}>
-              <ul className="exp_ul">
-                <li>
-                  <TextField
-                    label="Enter Company"
-                    name="company"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-                </li>
-                <li>
-                  <TextField
-                    label="Enter Title"
-                    name="jobTitle"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-                </li>
-                <li>
-                  <TextField
-                    label="Job Description"
-                    name="jobtype"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-                </li>
-                <li>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <TextField
-                            label="Minimum Salary"
-                            name="salaryMin"
-                            variant="outlined"
-                            fullWidth
-                            required
-                          />
-                        </td>
-                        <td>
-                          <TextField
-                            label="Maximum Salary"
-                            name="salaryMax"
-                            variant="outlined"
-                            fullWidth
-                            required
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </li>
-                <li>
-                  <TextField
-                    label="Location"
-                    name="location"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-                </li>
-                <li>
-                  <Button
-                    type="submit"
-                    style={{
-                      background: "#1E90FF",
-                      width: "100%",
-                      borderRadius: "40px",
-                      color: "white",
-                    }}
-                  >
-                    ADD
-                  </Button>
-                </li>
-              </ul>
-            </form>
-          </div>
-          <br />
-        </div>
       )}
     </>
   );
