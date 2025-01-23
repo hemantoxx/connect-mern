@@ -128,7 +128,30 @@ const JobPage = () => {
           <option value="suburbs">Suburbs</option>
           <option value="rural">Rural</option>
         </select>
-      </div>
+
+      <label for="bedrooms">Bedrooms:</label>
+  <select id="bedrooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4+">4+</option>
+  </select> 
+  
+  <label for="bathrooms">Bathrooms:</label>
+  <select id="bathrooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3+">3+</option>
+  </select>
+  
+    <label for="property-type">Property Type:</label>
+    <select id="property-type">
+      <option value="house">House</option>
+      <option value="apartment">Apartment</option>
+      <option value="townhouse">Townhouse</option>
+      <option value="other">Other</option>
+    </select> 
+  </div>
 
       {job === "Search" && (
         <>
