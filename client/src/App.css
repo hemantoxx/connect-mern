@@ -312,8 +312,9 @@ body{
   
   
   #logos_nav{
-    margin: 0 5rem;
+    margin: 10rem 10rem;
     margin-right: 15rem;
+
   }
   
   #shift_nav{
@@ -1561,15 +1562,15 @@ nav>*{
     padding: 2rem;
     width: 70vw;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   .cards1_set{
     /* border: 5px solid green; */
     padding: 2rem;
-    width: 95vw;
+    width: 70rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   

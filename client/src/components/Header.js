@@ -12,49 +12,41 @@ const Header = () => {
             to="/"
             className={({ isActive }) => (isActive ? 'inactive' : 'inactive')}
           >
-            <img className="logos_2" src={require('../name-head.png')} alt="" />
+            <img className="logos_2" src={require('../images/logo.png')} alt="" />
           </NavLink>
 
           <NavLink
             id="shift_nav"
-            to="/vision"
+            to="/home"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
-            Vision
+            HOME
           </NavLink>
 
           <NavLink
             id="shift_nav"
-            to="/explore"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            Directory
-          </NavLink>
-
-          <NavLink
-            id="shift_nav2"
             to="/JobPortal"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
-            Job List
+            SEARCH HOUSE
           </NavLink>
 
           <NavLink
             id="shift_nav"
-            to="/Donations"
+            to="/maps"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
-            Donations
+            INTERACTIVE MAP
           </NavLink>
           <NavLink
             id="shift_nav"
-            to="/Events"
+            to="/schemeFinder"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
-            Events
+           GOVERNMENT AIDS 
           </NavLink>
           <NavLink id="shift_nav"
-           to="/registration-form">
+           to="/authentication">
   <button className="signup-button">
     Sign Up →
   </button>

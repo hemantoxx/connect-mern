@@ -11,25 +11,15 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 
 // For Importing Pages
 import Landing from './pages/Landing';
-import Vision from "./pages/Vision"
-import Explore from "./pages/Explore"
-import Opportunities from "./pages/Opportunities"
-import ReachOut from "./pages/ReachOut"
-import Events from "./pages/Events";
-import WebTech from './pages/WebTech';
-import NonTech from './pages/NonTech';
-import Core from './pages/Core';
-import Media from './pages/Media';
-import Misc from './pages/Misc';
+import Home from "./pages/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import SkillsPage from './pages/SkillsPage';
 import DonationForm from './pages/Donation';
 import JobPage from './pages/JobPortal';
 import FeedbackForm from './pages/FeedbackForm';
-import RegistrationForm from './pages/RegistrationForm';
-
-import MapPage from "./pages/MapPage";
+import HousingSchemeFinder from "./pages/HousingSchemeFinder"
+import Maps from './pages/Maps'
+import Authentication from './pages/Authentication';
 
 
 const ScrollToTop = () => {
@@ -74,7 +64,7 @@ function App() {
     useEffect(() => {
         const timer = setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
+        }, 250);
 
         return () => clearTimeout(timer);
     }, []);
@@ -88,28 +78,14 @@ function App() {
          <ScrollToTop />
         <Routes>
             <Route path="/" element={<Landing />} />
-
             <Route path='/' element={<Header />}>
-                    <Route path="/vision" element={<Vision />} />
-                    <Route path="/explore" element={<Explore />}>
-                        <Route index element={<WebTech />} />
-                        <Route path="nontech" element={<NonTech />} />
-                        <Route path="core" element={<Core />} />
-                        <Route path="media" element={<Media />} />
-                        <Route path="misc" element={<Misc />} />
-
-                        
-                    </Route>
-            
-                    <Route path="map-page" element={<MapPage />} />
-                        <Route path="/explore/:category/:skill" element={<SkillsPage />}/>
-                    <Route path="/opportunities" element={<Opportunities />} />
-                    <Route path="/reach-out" element={<ReachOut />} />
-                    <Route path="/events" element={<Events />} />
-                    <Route path="/donations" element={<DonationForm />} />
-                    <Route path="/JobPortal" element={<JobPage />} />
-                    <Route path="/signup-button" element={<RegistrationForm />} />
-                    <Route path="/feedback-form" element={<FeedbackForm />}  />
+              <Route path="/home" element={<Home />} />
+              <Route path="/schemeFinder" element={<HousingSchemeFinder />}/>
+              <Route path="/maps" element={<Maps />} />
+              <Route path="/donations" element={<DonationForm />} />
+              <Route path="/JobPortal" element={<JobPage />} />
+              <Route path="/feedback-form" element={<FeedbackForm />} />
+              <Route path='/authentication' element={<Authentication />} />
             </Route>
             
         </Routes>

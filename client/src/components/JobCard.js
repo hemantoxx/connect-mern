@@ -1,32 +1,46 @@
+import { textAlign } from "@mui/system";
+import "./JobCard.css";
+
 const JobCard = (props) => {
   {/*
-  company 
-  position 
-  salaryRange
-      min 
-      max
-  jobtype // full time or intership
-  location 
-    */}
+  stars neigbourhood
+  name
+  address
+  date
+  price
+  */}
+  
   return (
-    <div className="cards_component">
-      <h1>{props.jobTitle}</h1>
-      <div className="tab-content">
-          <div>
-            {/* Render experience content here */}
-            <ul className='exp_ul'>
-            <li>Company</li>
-            <span><button>{props.company}</button></span>
-              <li>Job Description</li>
-              <p style={{textAlign:'justify'}}>{props.jobtype}</p>
-              <li>Salary</li>
-              <span><button>{props.salaryMin} to {props.salaryMax}</button></span>
-              <li>Location</li>
-              <span><button>{props.location}</button></span>
-            </ul>
+    <table className='box' >
+      <tr>
+        <td rowSpan={5}>
+          <img src={require('../images/flat.jpg')} style={{marginRight: '10px'}}></img>
+        </td>
+        <td><h1 style={{textAlign:"center"}}>BANDRA</h1></td>
+      </tr>
+      <tr>
+        <td>
+          Foot Over Bridge Khar, Govind Dham, Ram Krishna Nagar, Khar West, Mumbai, Maharashtra 400052
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Date
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div className="capsule">
+            Price : 2Cr - 3Cr
           </div>
-      </div>
-      </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Stars:
+        </td>
+      </tr>
+    </table>
   );
 };
 

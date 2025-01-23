@@ -8,10 +8,10 @@ const Footer = () => {
         <nav className="footer-navbar">
           <NavLink
             id="shift_nav"
-            to="/map-page"
+            to="/home"
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
-            Alumni Map
+            Home
           </NavLink>
 
           <NavLink

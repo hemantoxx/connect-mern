@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 import JobCard from '../components/JobCard';
 import jobdata from './jobdata';
-import { ReactTyped } from 'react-typed';
+import './JobPortal.css'
 
 const JobPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -76,7 +76,50 @@ const JobPage = () => {
 
   return (
     <>
-              
+    <div class="filter-sidenav">
+  <h3>Filter Options</h3>
+  <label for="price-range">Price Range:</label>
+  <select id="price-range">
+    <option value="0-50000">Under $50,000</option>
+    <option value="50000-100000">$50,000 - $100,000</option>
+    <option value="100000-200000">$100,000 - $200,000</option>
+    <option value="200000-500000">$200,000 - $500,000</option>
+    <option value="500000+">Over $500,000</option>
+  </select>
+  
+  <label for="location">Location:</label>
+  <select id="location">
+    <option value="city">City</option>
+    <option value="suburbs">Suburbs</option>
+    <option value="rural">Rural</option>
+  </select>
+  
+  {/* <label for="bedrooms">Bedrooms:</label>
+  <select id="bedrooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4+">4+</option>
+  </select> */}
+  
+  {/* <label for="bathrooms">Bathrooms:</label>
+  <select id="bathrooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3+">3+</option>
+  </select> */}
+  
+  {/* <label for="property-type">Property Type:</label>
+  <select id="property-type">
+    <option value="house">House</option>
+    <option value="apartment">Apartment</option>
+    <option value="townhouse">Townhouse</option>
+    <option value="other">Other</option>
+  </select>  */}
+  
+  <button type="button" onclick="applyFilters()">Apply Filters</button>
+</div>
+
       {job === "Search" && (
         <>
           <TextField
@@ -87,10 +130,10 @@ const JobPage = () => {
             style={{
               marginBottom: '20px',
               marginTop: '8rem',
-              marginLeft: '2rem',
+              marginLeft: '23rem',
               background: 'white',
               borderRadius: '20px',
-              width: '80%',
+              width: '60%',
             }}
           />
           {/* Don't Remove this Comment
@@ -105,7 +148,7 @@ const JobPage = () => {
             }}
             onClick={handleSearchChange}
           >Clear</Button>*/}
-          <Button
+          {/*<Button
             style={{
               width: '10%',
               background: 'blue',
@@ -117,6 +160,20 @@ const JobPage = () => {
             onClick={() => setJob("Addjob")}
           >
             Add Jobs
+          </Button>*/}
+          <Button
+            style={{
+              width: '10%',
+              background: 'blue',
+              marginTop: '9rem',
+              marginLeft: '1rem',
+              borderRadius: '20px',
+              height: '3rem',
+              color: 'white',
+              translate: '0px -10px',
+            }}
+          >
+            Search
           </Button>
           <div className='cards_set_head'>
             <div className='cards1_set'>

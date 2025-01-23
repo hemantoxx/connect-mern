@@ -13,17 +13,17 @@ const Landing = () => {
             <Particles className='particles-hai' options={particlesOptions} init={particlesInit}/>
             <div className='main'>
               <div className='new_main'>
-            <img className="logos" src={require('../logos.png')} alt='' />
+            <img className="logos" src={require('../images/logo.png')} alt='' />
           <div className="main-text">
-              <h1>AlumniUS</h1>
-              <p id="landing-p-desk">Where Alumni and students hangout...</p>
+              <h1>HOMEIFIND</h1>
+              <p id="landing-p-desk">AFFORADABLE HOME SOLUTIONS</p>
         </div>
     </div>
-    <p id="landing-p-mob">Where Alumni and students hangout...</p>
+    <p id="landing-p-mob">A AFFORDABLE HOME SOLUTION...</p>
 
     
     </div> 
-    <Link id="landing-btn" to="/vision">Let's Dive In</Link>         
+    <Link id="landing-btn" to="/home">Let's Dive In</Link>         
       </div>
   )
 }

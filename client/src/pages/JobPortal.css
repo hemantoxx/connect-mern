@@ -1,0 +1,79 @@
+.filter-sidenav {
+    position: fixed;
+    /* This is the key to keep it fixed */
+    top: 13%;
+    left: 2%;
+    /* Maintain original top and left positions */
+    width: 300px;
+    z-index: 1;
+    /* Ensure it appears above other content */
+    background-color: #111;
+    overflow-x: hidden;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-sidenav h3 {
+    font-size: 24px;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+    
+}
+
+.filter-sidenav label {
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    margin-top: 15px;
+}
+
+.filter-sidenav select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #fff;
+}
+
+.filter-sidenav button {
+    background-color: #f1f1f1;
+    color: #111;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.filter-sidenav button:hover {
+    background-color: #ccc;
+}
+
+@media screen and (max-height: 300px) {
+    .filter-sidenav {
+        padding-top: 15px;
+    }
+
+    .filter-sidenav h3 {
+        font-size: 20px;
+    }
+
+    .filter-sidenav label {
+        font-size: 16px;
+    }
+
+    .filter-sidenav select {
+        font-size: 16px;
+    }
+
+    .filter-sidenav button {
+        font-size: 16px;
+    }
+}
