@@ -60,7 +60,7 @@ const GovernmentAid = () => {
       borderRadius: "8px",
       fontSize: "1rem",
       background: "rgba(255, 255, 255, 0.2)",
-      color: "#fff",
+      color: "black",
       outline: "none",
     },
     result: {
@@ -145,16 +145,17 @@ const GovernmentAid = () => {
     return (
       <div>
         <h2>PMAY Subsidy Calculator</h2>
+      
         <select
-          value={incomeGroup}
-          onChange={(e) => setIncomeGroup(e.target.value)}
-          style={styles.input}
-        >
-          <option value="">Select Income Group</option>
-          <option value="EWS/LIG">EWS/LIG (up to ₹6 lakh/year)</option>
-          <option value="MIG1">MIG1 (₹6-12 lakh/year)</option>
-          <option value="MIG2">MIG2 (₹12-18 lakh/year)</option>
-        </select>
+  value={incomeGroup}
+  onChange={(e) => setIncomeGroup(e.target.value)}
+  style={styles.input} // Applies the updated styles
+>
+  <option value="">Select Income Group</option>
+  <option value="EWS/LIG">EWS/LIG (up to ₹6 lakh/year)</option>
+  <option value="MIG1">MIG1 (₹6-12 lakh/year)</option>
+  <option value="MIG2">MIG2 (₹12-18 lakh/year)</option>
+</select>
         <input
           type="number"
           placeholder="Enter loan amount in ₹"
