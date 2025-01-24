@@ -2,12 +2,13 @@
 
 # dependencies
 node_modules/
+connect-mern/rough/
 /.pnp
 .pnp.js
 
 # testing
 /coverage
-
+/rough/
 # production
 /build
 
