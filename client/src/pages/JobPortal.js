@@ -122,12 +122,12 @@ const JobPage = () => {
           <option value="500000+">Over $500,000</option>
         </select>
 
-        <label htmlFor="location">Location:</label>
+        {/* <label htmlFor="location">Location:</label>
         <select id="location">
           <option value="city">City</option>
           <option value="suburbs">Suburbs</option>
           <option value="rural">Rural</option>
-        </select>
+        </select> */}
 
       <label for="bedrooms">Bedrooms:</label>
   <select id="bedrooms">
